@@ -35,6 +35,16 @@ python3 $GS/studio/qa_studio.py plan.json . --keyterms Name,Brand  # 5. QA gate 
 - **Theme**: `theme: {bg, glow, accents, text, muted, font (path or family), logos, kicker, bg_image, bg_focus_x}`.
 - **Data-driven QA**: every number on screen must appear in `source_text` (or `--sources`); numbers only found in the script are warnings. Charts without a cite fail.
 
+## Imagine via browser (default, no API credits)
+
+Grok Studio's default clip route drives **Grok Imagine on https://grok.com/imagine** in the bot's own browser (a computerUse browser subagent), signed in to your grok.com account. Clips count against your grok.com / SuperGrok plan limits instead of xAI API credits.
+
+- **Setup:** on first run the bot asks you to sign in to grok.com in its browser, using a secure sign-in form or a desktop handoff. It never asks for passwords in chat. It then makes one short test clip, downloads it, shows it to you, and remembers that the route is ready.
+- **Video options:** 6 / 10 / 15 s; 480p / 720p / 1080p; aspect Auto, 2:3, 3:2, 1:1, 9:16, 16:9; audio toggle; Upload for image-to-video; Download. A clip takes about 3-4 minutes and lands in `~/Downloads/grok-video-*.mp4`.
+- **Character lock:** presenter and B-roll stills come from the bot's built-in image generation, using the approved portrait as a reference image plus a fixed character-lock description. The stills are then uploaded to Imagine for image-to-video.
+- **xAI API key (optional):** used for TTS narration, and as the fallback for clips (`avatar/gen_avatar_clips.py`, `studio/gen_broll.py`) when the browser route isn't set up or hits a plan limit. Skip the key and turn Imagine's audio on to use its native voice instead.
+- The cost table below applies to the API fallback.
+
 ## Requirements
 
 - `XAI_API_KEY`: an xAI API key **with credits** (TTS, STT, image and video generation are billed).
