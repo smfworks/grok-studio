@@ -1,0 +1,22 @@
+{
+ "title": "How a heat pump moves heat",
+ "brand": "Your Brand",
+ "tts": "xai",
+ "voice": "ursa",
+ "language": "en-US",
+ "source_post": "Replace with the primary source title and URL",
+ "sources": {
+  "P": "Primary source (replace with title, publisher, date)",
+  "1": "Secondary source (replace)"
+ },
+ "slides": [
+  {"type":"title","heading":"How a heat pump moves heat","sub":"It moves warmth instead of making it.","cite":["P"],
+   "narration":"Here's a quick look at how a heat pump works, using only what our sources say."},
+  {"type":"steps","heading":"The cycle in four steps","steps":["Refrigerant absorbs heat outside","A compressor raises its temperature","Heat is released indoors","The refrigerant expands and repeats"],"cite":["P"],
+   "narration":"The cycle has four steps. The refrigerant absorbs heat outside, a compressor raises its temperature, the heat is released indoors, and the refrigerant expands to start again."},
+  {"type":"quote","quote":"Replace with a verbatim quote from a cited source.","attr":"Source author","cite":["1"],
+   "narration":"Use quote slides only for words that appear verbatim in a cited source."},
+  {"type":"bullets","heading":"What to check before you buy","bullets":["Climate rating","Installer quality","Local incentives"],"cite":["1"],
+   "narration":"Before you buy, check the climate rating, the installer's quality, and any local incentives your source mentions."}
+ ]
+}

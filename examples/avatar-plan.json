@@ -1,0 +1,29 @@
+{
+ "title": "How a heat pump moves heat",
+ "brand": "Your Brand",
+ "voice": "ursa",
+ "language": "en-US",
+ "accent": "a natural American accent",
+ "avatar_audio": "ref_voice",
+ "presenter": "presenter.png",
+ "presenter_spec": "a friendly adult professional presenter with natural features (describe your own presenter here)",
+ "presenter_name": "",
+ "opening_line": "Hi, welcome to this explainer.",
+ "source_post": "Replace with the primary source title and URL",
+ "sources": {
+  "P": "Primary source (replace with title, publisher, date)",
+  "1": "Secondary source (replace)"
+ },
+ "segments": [
+  {"type":"avatar","id":"intro","line":"Today we look at how a heat pump moves heat instead of making it.","cite":["P"]},
+  {"type":"title","heading":"How a heat pump moves heat","sub":"It moves warmth instead of making it.","cite":["P"],
+   "narration":"A heat pump does not burn fuel to make heat. It moves heat from one place to another."},
+  {"type":"steps","heading":"The cycle in four steps","steps":["Refrigerant absorbs heat outside","A compressor raises its temperature","Heat is released indoors","The refrigerant expands and repeats"],"cite":["P"],
+   "narration":"The cycle has four steps. The refrigerant absorbs heat outside, a compressor raises its temperature, the heat is released indoors, and the refrigerant expands to start again.",
+   "pip":{"id":"pip_cycle","line":"The cycle has four steps.","cite":["P"],"position":"top-right","width":360}},
+  {"type":"avatar","id":"bridge","line":"So what should you check before buying one?","cite":["1"]},
+  {"type":"bullets","heading":"What to check before you buy","bullets":["Climate rating","Installer quality","Local incentives"],"cite":["1"],
+   "narration":"Check the climate rating, the installer's quality, and any local incentives your source mentions."},
+  {"type":"avatar","id":"outro","line":"Every point here came from the sources on screen. Thanks for watching.","cite":["P","1"]}
+ ]
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.onnx
+*.onnx.json
+*.mp4
+*.mp3
+*.wav
+*.mkv
+out/
+work/
+cost.jsonl
+.env
