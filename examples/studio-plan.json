@@ -1,0 +1,162 @@
+{
+ "title": "Example Co: Q3 results in 60 seconds",
+ "voice": "ursa",
+ "language": "en-US",
+ "formats": [
+  "16x9",
+  "9x16",
+  "1x1"
+ ],
+ "music": true,
+ "music_under_voice_db": 26,
+ "source_text": "work/source.txt",
+ "sources": {
+  "P": "Example Co, \"Q3 2026 results\", Oct 1 2026 (example.com)"
+ },
+ "caption_font": "Figtree",
+ "theme": {
+  "bg": [
+   "#04102e",
+   "#1a54c9"
+  ],
+  "accents": [
+   "#4f8cff",
+   "#ff5a5f",
+   "#ffc233",
+   "#3ecf8e"
+  ],
+  "font": "Figtree",
+  "logos": [
+   "work/logo.png"
+  ],
+  "kicker": "EXAMPLE CO \u00b7 Q3",
+  "bg_image": "work/keyart.jpg",
+  "bg_focus_x": 0.5,
+  "glow": [
+   "#2c6fe8",
+   "#5aa2ff",
+   "#0b2470"
+  ]
+ },
+ "segments": [
+  {
+   "type": "avatar",
+   "id": "intro",
+   "line": "Hi, I'm your presenter. Here's Example Co's quarter in one minute.",
+   "cite": [
+    "P"
+   ]
+  },
+  {
+   "type": "title",
+   "heading": "Q3 2026",
+   "sub": "Revenue up 12%",
+   "cite": [
+    "P"
+   ],
+   "narration": "Example Co reported revenue up twelve percent for the third quarter."
+  },
+  {
+   "type": "stat",
+   "heading": "Headline numbers",
+   "cite": [
+    "P"
+   ],
+   "stats": [
+    [
+     "$4.2B",
+     "revenue",
+     "four point two"
+    ],
+    [
+     "12%",
+     "growth",
+     "twelve percent"
+    ],
+    [
+     "31%",
+     "margin",
+     "thirty-one"
+    ]
+   ],
+   "narration": "Revenue was four point two billion dollars, growth was twelve percent, and margin reached thirty-one percent."
+  },
+  {
+   "type": "broll",
+   "id": "broll_office",
+   "prompt": "slow dolly through a bright modern open-plan office at dusk, soft bokeh",
+   "resolution": "480p",
+   "duration": 5,
+   "cite": [
+    "P"
+   ],
+   "narration": "Most of the growth came from the services business."
+  },
+  {
+   "type": "chart",
+   "chart": "bar",
+   "heading": "Revenue by segment ($B)",
+   "cite": [
+    "P"
+   ],
+   "data": [
+    {
+     "label": "Services",
+     "value": 2.1,
+     "display": "$2.1B"
+    },
+    {
+     "label": "Hardware",
+     "value": 1.5,
+     "display": "$1.5B"
+    },
+    {
+     "label": "Licensing",
+     "value": 0.6,
+     "display": "$0.6B"
+    }
+   ],
+   "narration": "Services brought in two point one billion, hardware one point five, and licensing zero point six."
+  },
+  {
+   "type": "bullets",
+   "heading": "What to watch",
+   "cite": [
+    "P"
+   ],
+   "pip": {
+    "id": "pip_watch",
+    "line": "Guidance is the number to watch.",
+    "cite": [
+     "P"
+    ]
+   },
+   "narration": "For the fourth quarter, the company guided to four point four to four point six billion.",
+   "bullets": [
+    {
+     "text": "Q4 guidance",
+     "body": "$4.4B to $4.6B",
+     "cue": "guided"
+    }
+   ]
+  },
+  {
+   "type": "broll",
+   "id": "owner_clip",
+   "path": "work/footage/factory.mp4",
+   "credit": "Footage: Example Co press kit",
+   "cite": [
+    "P"
+   ],
+   "narration": "Owner footage works too, with a path and a credit line."
+  },
+  {
+   "type": "avatar",
+   "id": "outro",
+   "line": "That's the quarter. Every number on screen cites its source.",
+   "cite": [
+    "P"
+   ]
+  }
+ ]
+}

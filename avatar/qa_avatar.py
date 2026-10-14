@@ -19,10 +19,16 @@ def norm(t):
     except ImportError: pass
     t = t.replace("-", " ").replace(" and ", " ")
     return [w for w in re.findall(r"[a-z']+", t) if w != "and"]
+def used_ids(plan):
+    ids = {x["id"] for x in plan["segments"] if x["type"] == "avatar"}
+    return ids | {x["pip"]["id"] for x in plan["segments"] if x.get("pip")}
 ap = argparse.ArgumentParser(description=__doc__); ap.add_argument("plan"); ap.add_argument("out"); ap.add_argument("--keyterms", default=""); a = ap.parse_args()
 man = json.load(open(os.path.join(a.out, "manifest.json"))); kt = [k for k in a.keyterms.split(",") if k]; fail = False
+ids = used_ids(json.load(open(a.plan)))
 for sid, entries in man.items():
+    if sid not in ids: continue
     for i, e in enumerate(entries):
+        e["video"] = e["video"] if os.path.isabs(e["video"]) else os.path.join(a.out, e["video"])
         mp3 = e["video"][:-4] + ".imagine.mp3"
         subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", e["video"], "-vn", mp3], check=True)
         heard = X.stt(mp3, kt); r = difflib.SequenceMatcher(None, norm(e["line"]), norm(heard)).ratio()

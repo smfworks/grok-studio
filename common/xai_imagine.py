@@ -101,6 +101,29 @@ def tts(text, out_mp3, voice="ursa", language="en-US", cost_log=None):
     log_cost(cost_log, "tts", voice, len(text) * TTS_PRICE_PER_CHAR, chars=len(text))
     return out_mp3
 
+def tts_timed(text, out_mp3, voice="ursa", language="en-US", cost_log=None):
+    """TTS with character-level timestamps. Writes out_mp3 and returns a list of words:
+    [{"w": word, "start": s, "end": e, "i": char_index}] in seconds (spoken text after any replacements)."""
+    body = {"text": text, "voice_id": voice, "language": language, "with_timestamps": True}
+    r = urllib.request.Request(API + "/tts", data=json.dumps(body).encode(),
+        headers={"Authorization": "Bearer " + _key(), "Content-Type": "application/json"})
+    with urllib.request.urlopen(r, timeout=240) as resp: d = json.loads(resp.read())
+    open(out_mp3, "wb").write(base64.b64decode(d["audio"]))
+    log_cost(cost_log, "tts", voice, len(text) * TTS_PRICE_PER_CHAR, chars=len(text), timed=True)
+    ts = d.get("audio_timestamps") or {}
+    return chars_to_words(ts.get("graph_chars", []), ts.get("graph_times", []))
+
+def chars_to_words(chars, times):
+    words, cur, st, en, i0 = [], "", None, None, 0
+    for i, (c, t) in enumerate(zip(chars, times)):
+        if c.isspace():
+            if cur: words.append({"w": cur, "start": st, "end": en, "i": i0}); cur = ""
+            continue
+        if not cur: st, i0 = t[0], i
+        cur += c; en = t[1]
+    if cur: words.append({"w": cur, "start": st, "end": en, "i": i0})
+    return words
+
 def stt(audio_path, keyterms=(), language="en"):
     """Transcribe with xAI STT (multipart). Returns text."""
     import uuid
