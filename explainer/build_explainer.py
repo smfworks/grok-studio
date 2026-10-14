@@ -179,7 +179,7 @@ def main(plan_path, out):
         fc.append(f"{lv}[{i}:v]xfade=transition=fade:duration={XF}:offset={off:.3f}[v{i}]")
         fc.append(f"{la}[{i}:a]acrossfade=d={XF}[a{i}]"); lv, la = f"[v{i}]", f"[a{i}]"
     fc.append(f"{lv}subtitles={out}/captions.srt:force_style='FontName=Inter,FontSize=11,PrimaryColour=&H00FFFFFF,OutlineColour=&H80000000,BorderStyle=3,Outline=1,Shadow=0,MarginV=36'[vout]")
-    sh(f'ffmpeg -y {ins} -filter_complex "{";".join(fc)}" -map "[vout]" -map "{la}" -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart {out}/explainer.mp4')
+    sh(f'ffmpeg -y {ins} -filter_complex "{";".join(fc)}" -map "[vout]" -map "{la if n > 1 else '0:a'}" -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p -c:a aac -b:a 192k -movflags +faststart {out}/explainer.mp4')
     with open(f"{out}/script.md", "w") as f:
         f.write(f"# {plan['title']}\n\nVoice: {', '.join(sorted(set(USED_TTS)))}\n\n")
         for i, s in enumerate(S, 1):
